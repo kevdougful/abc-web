@@ -1,7 +1,6 @@
-
 The MIT License (MIT)
 
-Copyright (c) 2021 Kevin Coffey
+Copyright (c) 2021 ABC Ballpark
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
