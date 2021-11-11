@@ -3,15 +3,16 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import {
   Container,
+  Flex,
   Stack,
   Button,
-  Divider,
+  StackDivider,
   HStack,
   Spacer,
   Text,
 } from "@chakra-ui/react";
 
-import { Home, About } from "../../pages";
+import { LoginPopover } from "./login-popover";
 
 export const NavbarDesktop: React.FC = () => {
   return (
@@ -22,14 +23,18 @@ export const NavbarDesktop: React.FC = () => {
       py={4}
       spacing={4}
     >
-      <HStack>
-        <Link to="/">
-          <Text fontSize="xl">Home</Text>
-        </Link>
-        <Link to="/about">
-          <Text fontSize="xl">About</Text>
-        </Link>
-      </HStack>
+      <Flex>
+        <HStack spacing={3} divider={<StackDivider />} as="nav">
+          <Link to="/">
+            <Text fontSize="xl">Home</Text>
+          </Link>
+          <Link to="/about">
+            <Text fontSize="xl">About</Text>
+          </Link>
+        </HStack>
+        <Spacer />
+        <LoginPopover />
+      </Flex>
     </Container>
   );
 };
