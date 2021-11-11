@@ -3,44 +3,57 @@ import * as React from "react";
 import {
   Button,
   Stack,
-  InputGroup,
+  HStack,
+  FormControl,
+  FormLabel,
   Input,
+  InputGroup,
   InputLeftElement,
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
   PopoverBody,
   PopoverFooter,
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import { EmailIcon, LockIcon } from "@chakra-ui/icons";
+import { EmailIcon, LockIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 export const LoginPopover: React.FC = () => {
+  const [user, setUser] = React.useState();
+
   return (
     <Popover>
       <PopoverTrigger>
         <Button>Login</Button>
       </PopoverTrigger>
       <PopoverContent>
-        <PopoverHeader>Credentials</PopoverHeader>
         <PopoverArrow />
-        <PopoverCloseButton />
         <PopoverBody>
           <Stack>
-            <InputGroup>
-              <InputLeftElement children={<EmailIcon />} />
-              <Input type="email" placeholder="Email" />
-            </InputGroup>
-            <InputGroup>
-              <InputLeftElement children={<LockIcon />} />
-              <Input type="password" placeholder="Password" />
-            </InputGroup>
+            <PopoverCloseButton />
+            <FormControl id="email">
+              <FormLabel>Email</FormLabel>
+              <InputGroup>
+                <InputLeftElement children={<EmailIcon />} />
+                <Input type="email" placeholder="user@example.com" />
+              </InputGroup>
+            </FormControl>
+            <FormControl id="password">
+              <FormLabel>Password</FormLabel>
+              <InputGroup>
+                <InputLeftElement children={<LockIcon />} />
+                <Input type="password" placeholder="password" />
+              </InputGroup>
+            </FormControl>
           </Stack>
         </PopoverBody>
         <PopoverFooter>
-          <Button>Submit</Button>
+          <HStack justify="right">
+            <Button variant="solid" rightIcon={<ArrowForwardIcon />}>
+              Submit
+            </Button>
+          </HStack>
         </PopoverFooter>
       </PopoverContent>
     </Popover>
