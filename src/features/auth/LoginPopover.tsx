@@ -1,14 +1,10 @@
 import * as React from "react";
 
 import {
+  Link,
   Button,
   Stack,
   HStack,
-  FormControl,
-  FormLabel,
-  Input,
-  InputGroup,
-  InputLeftElement,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -17,15 +13,15 @@ import {
   PopoverArrow,
   PopoverCloseButton,
 } from "@chakra-ui/react";
-import { EmailIcon, LockIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+
+import { LoginForm } from "./LoginForm";
+import { SignupForm } from "./SignupForm";
 
 export const LoginPopover: React.FC = () => {
-  const [user, setUser] = React.useState();
+  const [showSignup, setShowSignup] = React.useState(false);
 
-  React.useEffect(() => {
-    if (user) {
-    }
-  });
+  const toggleForm = () => setShowSignup(!showSignup);
 
   return (
     <Popover>
@@ -37,26 +33,16 @@ export const LoginPopover: React.FC = () => {
         <PopoverBody>
           <Stack>
             <PopoverCloseButton />
-            <FormControl id="email">
-              <FormLabel>Email</FormLabel>
-              <InputGroup>
-                <InputLeftElement children={<EmailIcon />} />
-                <Input type="email" placeholder="user@example.com" />
-              </InputGroup>
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <InputGroup>
-                <InputLeftElement children={<LockIcon />} />
-                <Input type="password" placeholder="password" />
-              </InputGroup>
-            </FormControl>
+            {showSignup ? <SignupForm /> : <LoginForm />}
           </Stack>
         </PopoverBody>
         <PopoverFooter>
           <HStack justify="right">
+            <Link onClick={() => toggleForm()}>
+              {showSignup ? "Login" : "Sign Up"}
+            </Link>
             <Button variant="solid" rightIcon={<ArrowForwardIcon />}>
-              Submit
+              {showSignup ? "Sign Up" : "Submit"}
             </Button>
           </HStack>
         </PopoverFooter>

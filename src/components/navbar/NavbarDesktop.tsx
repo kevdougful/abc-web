@@ -12,7 +12,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { LoginPopover } from "../../features/auth/LoginPopover";
+import { LoginPopover } from "../../features/auth";
 
 export const NavbarDesktop: React.FC = () => {
   return (
