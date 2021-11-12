@@ -22,6 +22,11 @@ import { EmailIcon, LockIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 export const LoginPopover: React.FC = () => {
   const [user, setUser] = React.useState();
 
+  React.useEffect(() => {
+    if (user) {
+    }
+  });
+
   return (
     <Popover>
       <PopoverTrigger>

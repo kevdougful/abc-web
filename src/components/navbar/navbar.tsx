@@ -1,8 +1,9 @@
 import * as React from "react";
 
-import { NavbarDesktop } from "./navbar-desktop";
-import { NavbarMobile } from "./navbar-mobile";
 import { useBreakpointValue } from "@chakra-ui/react";
+
+import { NavbarDesktop } from "./NavbarDesktop";
+import { NavbarMobile } from "./NavbarMobile";
 
 export const Navbar: React.FC = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
