@@ -6,6 +6,7 @@ import { Auth } from "@aws-amplify/auth";
 
 import {
   HStack,
+  Spacer,
   Stack,
   Button,
   Link,
@@ -24,6 +25,7 @@ import {
 } from "@chakra-ui/icons";
 
 import { useInput } from "../../hooks";
+import { FormView } from "./LoginPopover";
 import { AuthFormProps } from "./formInputProps";
 import { FormInput } from "./FormInput";
 
@@ -35,7 +37,7 @@ export const SignupForm = (props: AuthFormProps) => {
   const dispatch = useAppDispatch();
 
   const signup = async () => {
-    const result = await Auth.signUp({
+    const { user } = await Auth.signUp({
       username: email,
       password: password,
       attributes: {
@@ -43,8 +45,11 @@ export const SignupForm = (props: AuthFormProps) => {
         // phone_number: phone,
       },
     });
-    console.log(result);
-    dispatch(setCredentials(result));
+    console.log(user);
+    props.usernameSetter(user.getUsername());
+    props.viewSetter(FormView.CONFIRM);
+    // console.log(result);
+    // dispatch(setCredentials(result));
   };
 
   return (
@@ -89,13 +94,16 @@ export const SignupForm = (props: AuthFormProps) => {
       </PopoverBody>
       <PopoverFooter>
         <HStack justify="right">
-          <Link onClick={props.toggler}>Login</Link>
+          <Link onClick={() => props.viewSetter(FormView.LOGIN)}>
+            Login Instead
+          </Link>
+          <Spacer />
           <Button
             onClick={signup}
             variant="solid"
             rightIcon={<ArrowForwardIcon />}
           >
-            Submit
+            Sign Up
           </Button>
         </HStack>
       </PopoverFooter>

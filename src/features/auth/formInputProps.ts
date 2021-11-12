@@ -1,3 +1,6 @@
+import { FormView } from "./LoginPopover";
+
 export type AuthFormProps = {
-  toggler: (event: any) => void;
+  viewSetter: (view: FormView) => void;
+  usernameSetter: (username: string) => void;
 };

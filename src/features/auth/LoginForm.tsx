@@ -6,6 +6,7 @@ import { Auth } from "@aws-amplify/auth";
 
 import {
   HStack,
+  Spacer,
   Stack,
   Button,
   Link,
@@ -18,6 +19,7 @@ import {
 import { AtSignIcon, LockIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 
 import { useInput } from "../../hooks";
+import { FormView } from "./LoginPopover";
 import { AuthFormProps } from "./formInputProps";
 import { FormInput } from "./FormInput";
 
@@ -56,7 +58,8 @@ export const LoginForm = (props: AuthFormProps) => {
       </PopoverBody>
       <PopoverFooter>
         <HStack justify="right">
-          <Link onClick={props.toggler}>Sign Up</Link>
+          <Link onClick={() => props.viewSetter(FormView.SIGNUP)}>Sign Up</Link>
+          <Spacer />
           <Button
             onClick={login}
             variant="solid"

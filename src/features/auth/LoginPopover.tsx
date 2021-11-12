@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import {
+  Box,
   Link,
   Button,
   Stack,
@@ -12,22 +13,30 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 import { LoginForm } from "./LoginForm";
 import { SignupForm } from "./SignupForm";
+import { ConfirmForm } from "./ConfirmForm";
+
+export enum FormView {
+  LOGIN,
+  SIGNUP,
+  CONFIRM,
+}
 
 export const LoginPopover: React.FC = () => {
-  const [showSignup, setShowSignup] = React.useState(false);
-
-  const toggleForm = (event: any) => setShowSignup(!showSignup);
+  const [username, setUsername] = React.useState("");
+  const [view, setView] = React.useState(FormView.LOGIN);
 
   return (
     <Popover>
       <PopoverTrigger>
         <Button>Login</Button>
       </PopoverTrigger>
-      {showSignup ? (
-        <SignupForm toggler={toggleForm} />
-      ) : (
-        <LoginForm toggler={toggleForm} />
-      )}
+      {view === FormView.LOGIN ? (
+        <LoginForm viewSetter={setView} usernameSetter={setUsername} />
+      ) : null}
+      {view === FormView.SIGNUP ? (
+        <SignupForm viewSetter={setView} usernameSetter={setUsername} />
+      ) : null}
+      {view === FormView.CONFIRM ? <ConfirmForm username={username} /> : null}
     </Popover>
   );
 };
