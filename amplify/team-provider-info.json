@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-abcweb-dev-225105-authRole",
+      "UnauthRoleArn": "arn:aws:iam::965641027596:role/amplify-abcweb-dev-225105-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::965641027596:role/amplify-abcweb-dev-225105-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-abcweb-dev-225105-deployment",
+      "UnauthRoleName": "amplify-abcweb-dev-225105-unauthRole",
+      "StackName": "amplify-abcweb-dev-225105",
+      "StackId": "arn:aws:cloudformation:us-east-1:965641027596:stack/amplify-abcweb-dev-225105/2580ad20-4374-11ec-90e3-0a7e59e04d9f",
+      "AmplifyAppId": "d37pguyecvxhz3"
+    },
+    "categories": {
+      "auth": {
+        "abcweb4858dd52": {}
+      }
+    }
+  }
+}
