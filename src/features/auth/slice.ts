@@ -8,8 +8,7 @@ interface User {
 }
 
 interface AuthState {
-  user: User | null;
-  token: string | null;
+  user: any | null;
 }
 
 const slice = createSlice({
@@ -18,10 +17,9 @@ const slice = createSlice({
   reducers: {
     setCredentials: (
       state,
-      { payload: { user, token } }: PayloadAction<{ user: User; token: string }>
+      { payload: { user } }: PayloadAction<{ user: any }>
     ) => {
       state.user = user;
-      state.token = token;
     },
   },
 });

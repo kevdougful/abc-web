@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kevdougful/abc-web#readme",
   "dependencies": {
+    "@aws-amplify/auth": "^4.3.14",
     "@chakra-ui/icons": "^1.1.0",
     "@chakra-ui/react": "^1.6.12",
     "@emotion/react": "^11.5.0",

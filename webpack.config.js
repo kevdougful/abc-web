@@ -15,7 +15,7 @@ module.exports = {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         resolve: {
-          extensions: [".ts", ".tsx", ".js", ".json"],
+          extensions: [".mjs", ".ts", ".tsx", ".js", ".json"],
         },
         use: "ts-loader",
       },
